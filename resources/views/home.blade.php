@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPkM Informatika</title>
+    <title>PPKM Informatika — Kelompok 7</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,13 +15,14 @@
 
     <style>
         :root {
-            --cream: #f6f3ec;
-            --ink: #111111;
-            --dark: #181818;
-            --blue: #1f3fff;
-            --lime: #c6ff2e;
-            --muted: #55524b;
-            --line: #111111;
+            --cream: #f4f7fb;
+            --ink: #0a1633;
+            --dark: #071126;
+            --blue: #123b8f;
+            --blue-bright: #2457c5;
+            --lime: #dbe8ff;
+            --muted: #52627d;
+            --line: #0a1633;
             --display: 'Anton', 'Impact', sans-serif;
             --mono: 'Space Mono', ui-monospace, monospace;
         }
@@ -173,7 +174,7 @@
 
         .hero-photo {
             position: relative;
-            background: var(--lime);
+            background: var(--blue);
             aspect-ratio: 3 / 4;
             overflow: hidden;
             display: flex;
@@ -372,8 +373,22 @@
         .members-section {
             background: var(--dark);
             color: #fff;
-            padding: 72px 0 80px;
+            padding: 88px 0 96px;
             border-top: 2px solid var(--line);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .members-section::before {
+            content: "07";
+            position: absolute;
+            right: -15px;
+            top: -55px;
+            font-family: var(--display);
+            font-size: 18rem;
+            line-height: 1;
+            color: rgba(36,87,197,.10);
+            pointer-events: none;
         }
 
         .members-header {
@@ -381,34 +396,60 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-end;
-            gap: 18px;
-            margin-bottom: 44px;
+            gap: 24px;
+            margin-bottom: 42px;
+            position: relative;
+            z-index: 1;
         }
 
         .members-title {
             font-family: var(--display);
             font-weight: 400;
-            font-size: clamp(2.6rem, 5vw, 4.6rem);
-            line-height: .95;
+            font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+            line-height: .9;
             text-transform: uppercase;
-            color: var(--lime);
-            margin: 0 0 14px;
+            color: #fff;
+            margin: 0 0 16px;
         }
 
+        .members-title .accent { color: #6f9df7; }
+
         .members-desc {
-            max-width: 480px;
+            max-width: 530px;
             font-size: 13px;
-            line-height: 1.7;
-            color: #cfcabd;
+            line-height: 1.8;
+            color: #aebbd2;
             margin: 0;
         }
 
-        .members-count {
-            background: var(--lime);
-            color: var(--ink);
+        .members-tools {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .member-search {
+            width: 230px;
+            border: 1px solid #31415e;
+            background: #0c1931;
+            color: #fff;
+            padding: 12px 16px;
             border-radius: 999px;
-            padding: 10px 22px;
-            font-size: 12px;
+            font-family: var(--mono);
+            font-size: 11px;
+            outline: none;
+        }
+
+        .member-search::placeholder { color: #7786a0; }
+        .member-search:focus { border-color: #6f9df7; box-shadow: 0 0 0 3px rgba(111,157,247,.12); }
+
+        .members-count {
+            background: var(--blue-bright);
+            color: #fff;
+            border-radius: 999px;
+            padding: 11px 20px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: .06em;
             text-transform: uppercase;
@@ -417,54 +458,87 @@
         .member-card {
             position: relative;
             height: 100%;
-            background: var(--cream);
+            background: #f4f7fb;
             color: var(--ink);
-            border: 2px solid var(--cream);
-            transition: transform .2s, border-color .2s;
+            border: 1px solid #d9e2f1;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
         }
 
         .member-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--lime);
+            transform: translateY(-8px);
+            border-color: #6f9df7;
+            box-shadow: 0 22px 45px rgba(0,0,0,.28);
         }
+
+        .member-card::after {
+            content: "VIEW PROFILE  ↗";
+            position: absolute;
+            right: 14px;
+            top: 14px;
+            z-index: 3;
+            background: var(--blue);
+            color: #fff;
+            padding: 7px 10px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            opacity: 0;
+            transform: translateY(-5px);
+            transition: .2s ease;
+        }
+
+        .member-card:hover::after { opacity: 1; transform: translateY(0); }
 
         .member-number {
             position: absolute;
             top: 0;
             left: 0;
             z-index: 2;
-            background: var(--lime);
-            color: var(--ink);
-            padding: 5px 11px;
-            font-size: 12px;
+            background: var(--blue);
+            color: #fff;
+            padding: 7px 12px;
+            font-size: 11px;
             font-weight: 700;
         }
 
         .member-photo {
-            background: var(--lime);
+            background: #dbe8ff;
             aspect-ratio: 1 / 1;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
+        }
+
+        .member-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(18,59,143,.08), transparent 60%);
+            pointer-events: none;
         }
 
         .member-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(1) contrast(1.15);
-            mix-blend-mode: multiply;
+            filter: saturate(.82);
+            transition: transform .45s ease;
         }
+
+        .member-card:hover .member-image { transform: scale(1.05); }
 
         .member-no-image {
             font-size: 84px;
             line-height: 1;
-            color: var(--ink);
+            color: var(--blue);
         }
 
         .member-body {
-            padding: 18px 18px 20px;
+            padding: 20px 18px 21px;
             border-top: 2px solid var(--ink);
         }
 
@@ -472,7 +546,8 @@
             font-size: 15px;
             font-weight: 700;
             text-transform: uppercase;
-            margin: 0 0 4px;
+            margin: 0 0 5px;
+            padding-right: 50px;
         }
 
         .member-position {
@@ -481,15 +556,163 @@
             font-weight: 700;
             letter-spacing: .08em;
             text-transform: uppercase;
-            color: var(--blue);
+            color: var(--blue-bright);
             margin-bottom: 12px;
         }
 
         .member-description {
-            font-size: 12px;
+            font-size: 11px;
             line-height: 1.65;
             color: var(--muted);
             margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .member-click {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #dbe2ed;
+            color: var(--blue);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .member-click i { font-size: 15px; }
+
+        /* PROFILE MODAL */
+        .profile-modal .modal-dialog {
+            max-width: 760px;
+        }
+
+        .profile-modal .modal-content {
+            border: 0;
+            border-radius: 0;
+            overflow: hidden;
+            background: #f4f7fb;
+            box-shadow: 0 35px 90px rgba(0,0,0,.35);
+        }
+
+        .profile-modal .modal-header {
+            border: 0;
+            padding: 16px 18px;
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .profile-modal .modal-header .btn-close {
+            filter: invert(1);
+            opacity: .8;
+        }
+
+        .profile-modal .modal-body { padding: 0; }
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 42% 58%;
+        }
+
+        .profile-photo {
+            min-height: 430px;
+            background: #dbe8ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-photo .profile-placeholder {
+            height: 100%;
+            min-height: 430px;
+            display: grid;
+            place-items: center;
+            font-size: 110px;
+            color: var(--blue);
+        }
+
+        .profile-index {
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
+            background: var(--blue);
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .profile-info {
+            padding: 42px 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-label {
+            color: var(--blue-bright);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .profile-info h3 {
+            font-family: var(--display);
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+            line-height: .9;
+            text-transform: uppercase;
+            margin: 0 0 12px;
+            color: var(--dark);
+        }
+
+        .profile-position {
+            display: inline-block;
+            align-self: flex-start;
+            background: var(--blue);
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .profile-description {
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .profile-footer {
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid #d6dfed;
+            font-size: 10px;
+            color: #71809a;
+        }
+
+        @media (max-width: 767px) {
+            .member-search { width: 100%; }
+            .profile-layout { grid-template-columns: 1fr; }
+            .profile-photo { min-height: 300px; max-height: 360px; }
+            .profile-photo .profile-placeholder { min-height: 300px; }
+            .profile-info { padding: 30px 24px; }
         }
 
         /* EMPTY */
@@ -772,28 +995,44 @@
         <div class="container-fluid" style="padding: 0 40px;">
             <div class="members-header">
                 <div>
-                    <h2 class="members-title">Orang-orang<br>di balik PPKM.</h2>
-
+                    <div class="hero-kicker" style="color:#6f9df7;">STRUKTUR KELOMPOK 07</div>
+                    <h2 class="members-title">Orang-orang<br>di balik <span class="accent">PPKM.</span></h2>
                     <p class="members-desc">
-                        Kenali anggota yang mengambil bagian dalam perjalanan
-                        PPKM Informatika.
+                        Kenali lebih dekat orang-orang yang mengambil bagian dalam perjalanan
+                        PPKM Informatika. Klik salah satu card untuk melihat profil lengkapnya.
                     </p>
                 </div>
 
-                <div class="members-count">
-                    {{ $members->count() }} Anggota Terdaftar
+                <div class="members-tools">
+                    <input type="search" id="memberSearch" class="member-search" placeholder="Cari nama / jabatan...">
+                    <div class="members-count">
+                        {{ $members->count() }} Anggota
+                    </div>
                 </div>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4" id="membersGrid">
                 @forelse($members as $member)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="member-card">
+                    <div class="col-sm-6 col-lg-4 col-xl-3 member-item"
+                         data-search="{{ strtolower($member->nama . ' ' . $member->jabatan) }}">
+                        <div class="member-card"
+                             role="button"
+                             tabindex="0"
+                             data-bs-toggle="modal"
+                             data-bs-target="#memberModal"
+                             data-name="{{ $member->nama }}"
+                             data-position="{{ $member->jabatan }}"
+                             data-description="{{ $member->deskripsi ?: 'Bagian dari PPKM Informatika yang berkontribusi dalam perjalanan organisasi.' }}"
+                             data-photo="{{ $member->foto ? asset('uploads/members/' . $member->foto) : '' }}"
+                             data-number="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}">
+
                             <div class="member-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</div>
 
                             <div class="member-photo">
                                 @if($member->foto)
-                                    <img src="{{ asset('uploads/members/' . $member->foto) }}" alt="{{ $member->nama }}" class="member-image">
+                                    <img src="{{ asset('uploads/members/' . $member->foto) }}"
+                                         alt="{{ $member->nama }}"
+                                         class="member-image">
                                 @else
                                     <div class="member-no-image">
                                         <i class="bi bi-person"></i>
@@ -805,14 +1044,14 @@
                                 <h5 class="member-name">{{ $member->nama }}</h5>
                                 <span class="member-position">{{ $member->jabatan }}</span>
 
-                                @if($member->deskripsi)
-                                    <p class="member-description">{{ $member->deskripsi }}</p>
-                                @else
-                                    <p class="member-description">
-                                        Bagian dari PPKM Informatika yang
-                                        berkontribusi dalam perjalanan organisasi.
-                                    </p>
-                                @endif
+                                <p class="member-description">
+                                    {{ $member->deskripsi ?: 'Bagian dari PPKM Informatika yang berkontribusi dalam perjalanan organisasi.' }}
+                                </p>
+
+                                <div class="member-click">
+                                    <span>Lihat profil</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -826,8 +1065,51 @@
                     </div>
                 @endforelse
             </div>
+
+            <div id="memberNotFound" class="empty-state mt-4" style="display:none;">
+                <i class="bi bi-search"></i>
+                <h5>Anggota Tidak Ditemukan</h5>
+                <p class="mb-0">Coba cari dengan nama atau jabatan yang berbeda.</p>
+            </div>
         </div>
     </section>
+
+    <!-- MEMBER PROFILE MODAL -->
+
+    <div class="modal fade profile-modal" id="memberModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:.1em;">PPKM INFORMATIKA / PROFILE</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="profile-layout">
+                        <div class="profile-photo">
+                            <img id="modalMemberPhoto" src="" alt="" style="display:none;">
+                            <div id="modalMemberPlaceholder" class="profile-placeholder">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <div class="profile-index" id="modalMemberNumber">01</div>
+                        </div>
+
+                        <div class="profile-info">
+                            <div class="profile-label">Anggota Kelompok 07</div>
+                            <h3 id="modalMemberName">Nama Anggota</h3>
+                            <div class="profile-position" id="modalMemberPosition">Jabatan</div>
+                            <p class="profile-description" id="modalMemberDescription"></p>
+
+                            <div class="profile-footer">
+                                <i class="bi bi-stars me-1"></i>
+                                PPKM Informatika · Kelompok 7
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- CLOSING -->
@@ -863,6 +1145,68 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // PROFILE MODAL
+        const memberModal = document.getElementById('memberModal');
+
+        if (memberModal) {
+            memberModal.addEventListener('show.bs.modal', function (event) {
+                const card = event.relatedTarget;
+
+                document.getElementById('modalMemberName').textContent = card.dataset.name || 'Nama Anggota';
+                document.getElementById('modalMemberPosition').textContent = card.dataset.position || 'Anggota';
+                document.getElementById('modalMemberDescription').textContent =
+                    card.dataset.description || 'Bagian dari PPKM Informatika.';
+                document.getElementById('modalMemberNumber').textContent = card.dataset.number || '01';
+
+                const photo = document.getElementById('modalMemberPhoto');
+                const placeholder = document.getElementById('modalMemberPlaceholder');
+
+                if (card.dataset.photo) {
+                    photo.src = card.dataset.photo;
+                    photo.alt = card.dataset.name || 'Foto anggota';
+                    photo.style.display = 'block';
+                    placeholder.style.display = 'none';
+                } else {
+                    photo.style.display = 'none';
+                    placeholder.style.display = 'grid';
+                }
+            });
+        }
+
+        // SEARCH MEMBER
+        const searchInput = document.getElementById('memberSearch');
+        const memberItems = document.querySelectorAll('.member-item');
+        const notFound = document.getElementById('memberNotFound');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function () {
+                const keyword = this.value.toLowerCase().trim();
+                let visible = 0;
+
+                memberItems.forEach(item => {
+                    const match = item.dataset.search.includes(keyword);
+                    item.style.display = match ? '' : 'none';
+                    if (match) visible++;
+                });
+
+                if (notFound) {
+                    notFound.style.display = visible === 0 ? 'block' : 'none';
+                }
+            });
+        }
+
+        // ENTER / SPACE UNTUK CARD
+        document.querySelectorAll('.member-card').forEach(card => {
+            card.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+    </script>
+
 
 </body>
 </html>
