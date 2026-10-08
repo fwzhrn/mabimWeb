@@ -873,7 +873,11 @@
                     <h1>
                         <span class="line">Kelompok</span>
                         <span class="line">PPKM <span class="star">✱</span></span>
+<<<<<<< HEAD
                         <span class="line">-</span>
+=======
+                        <span class="line">------------</span
+>>>>>>> 30193a742b4105987736f9fdf92ba054a6427a32
                         <span class="line blue">Kelompok 7.</span>
                     </h1>
                 </div>
@@ -1173,6 +1177,24 @@
                 }
             });
         }
+
+        <!-- MUSIC PLAYER -->
+<div class="music-player" id="musicPlayer">
+    <button type="button" class="music-btn" id="musicBtn" aria-label="Putar atau jeda lagu">
+        <i class="bi bi-play-fill"></i>
+    </button>
+
+    <div class="music-info">
+        <div class="music-title">Judul Lagu</div>
+        <div class="music-artist">Nama Artis</div>
+    </div>
+
+    <div class="music-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <audio id="bgMusic" src="{{ asset('audio/lagu.mp3') }}" loop preload="none"></audio>
+</div>
 
         // SEARCH MEMBER
         const searchInput = document.getElementById('memberSearch');
