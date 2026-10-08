@@ -1280,6 +1280,8 @@
         }
 
         <script>
+    </script>
+
     const audio  = document.getElementById('bgMusic');
     const btn    = document.getElementById('musicBtn');
     const player = document.getElementById('musicPlayer');
@@ -1304,7 +1306,6 @@
         player.classList.remove('playing');
         icon.className = 'bi bi-play-fill';
     });
-</script>
        
 
         // SEARCH MEMBER
