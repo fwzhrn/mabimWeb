@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -9,645 +8,600 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- FONT BARU: Anton (judul) + Space Mono (teks) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --blue: #2563eb;
-            --blue-dark: #1e40af;
-            --navy: #0b1736;
-            --text: #172033;
-            --muted: #667085;
-            --soft: #f5f8fc;
-            --line: #e6eaf0;
-            --white: #fff;
+            --cream: #f6f3ec;
+            --ink: #111111;
+            --dark: #181818;
+            --blue: #1f3fff;
+            --lime: #c6ff2e;
+            --muted: #55524b;
+            --line: #111111;
+            --display: 'Anton', 'Impact', sans-serif;
+            --mono: 'Space Mono', ui-monospace, monospace;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
-            color: var(--text);
-            background: var(--soft);
-            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            font-family: var(--mono);
         }
 
-        /* NAVBAR */
+        a { color: inherit; }
+
+        /* ============ NAVBAR ============ */
 
         .navbar {
-            background: var(--white);
-            border-bottom: 1px solid var(--line);
-            padding: 17px 0;
+            background: var(--cream);
+            border-bottom: 2px solid var(--line);
+            padding: 0;
         }
+
+        .navbar > .container-fluid { padding: 0; }
 
         .navbar-brand {
-            color: var(--navy) !important;
-            font-size: 19px;
-            font-weight: 800;
-            letter-spacing: -.4px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0;
+            padding: 14px 24px;
+            border-right: 2px solid var(--line);
+            font-family: var(--display);
+            font-size: 22px;
+            line-height: 1;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+            color: var(--ink) !important;
         }
 
-        .navbar-brand span {
-            color: var(--blue);
+        .navbar-brand .logo-star {
+            font-size: 34px;
+            line-height: 1;
         }
 
         .navbar-brand small {
             display: block;
-            color: #98a2b3;
-            font-size: 8px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            margin-left: 30px;
-            margin-top: -2px;
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--muted);
+            margin-top: 4px;
         }
 
         .navbar-nav .nav-link {
-            color: #475467;
-            font-size: 14px;
-            font-weight: 600;
-            margin-left: 25px;
-            transition: .2s;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 0 18px !important;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--blue);
+        .navbar-nav .nav-link:hover { color: var(--blue); }
+
+        .nav-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 24px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .nav-status::after {
+            content: "";
+            width: 9px;
+            height: 9px;
+            background: var(--blue);
+            border-radius: 50%;
         }
 
         .navbar-toggler {
-            border: 0;
+            border: 2px solid var(--ink);
+            border-radius: 0;
+            margin-right: 20px;
         }
 
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
+        .navbar-toggler:focus { box-shadow: none; }
 
-        /* HERO */
+        /* ============ HERO ============ */
 
         .hero {
-            background: var(--white);
-            padding: 90px 0 85px;
             position: relative;
+            background: var(--cream);
+            padding: 56px 0 64px;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 460px;
-            height: 460px;
-            border: 1px solid #e7eefb;
-            border-radius: 50%;
-            right: -170px;
-            top: -220px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            background: #eff5ff;
-            border-radius: 50%;
-            right: 80px;
-            bottom: -150px;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            padding: 0 40px;
         }
 
         .hero-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            color: var(--blue);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
             text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-
-        .hero-kicker::before {
-            content: "";
-            width: 30px;
-            height: 2px;
-            background: var(--blue);
+            margin-bottom: 18px;
         }
 
         .hero h1 {
-            max-width: 760px;
-            color: var(--navy);
-            font-size: 60px;
-            line-height: 1.03;
-            font-weight: 800;
-            letter-spacing: -2.8px;
-            margin: 0 0 25px;
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(3.4rem, 8.2vw, 8rem);
+            line-height: .92;
+            letter-spacing: -.005em;
+            text-transform: uppercase;
+            margin: 0;
         }
 
-        .hero h1 span {
-            color: var(--blue);
+        .hero h1 .line { display: block; }
+
+        .hero h1 .blue { color: var(--blue); }
+
+        .hero h1 .star {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: .78em;
+            height: .78em;
+            margin-left: .08em;
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: 50%;
+            font-size: .62em;
+            line-height: 1;
+            vertical-align: .08em;
         }
+
+        /* FOTO TENGAH */
+
+        .hero-photo {
+            position: relative;
+            background: var(--lime);
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1) contrast(1.25);
+            mix-blend-mode: multiply;
+        }
+
+        .hero-photo .photo-placeholder {
+            font-family: var(--display);
+            font-size: clamp(8rem, 16vw, 15rem);
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        /* KANAN */
+
+        .hero-side { padding-left: 36px; }
 
         .hero-text {
-            max-width: 620px;
-            color: var(--muted);
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.7;
+            text-transform: uppercase;
+            margin-bottom: 38px;
         }
 
         .hero-actions {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 18px;
+            gap: 20px;
         }
 
-        .btn-primary-custom {
+        .btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
             background: var(--blue);
-            color: white;
-            border: 1px solid var(--blue);
-            border-radius: 6px;
-            padding: 12px 19px;
-            font-size: 13px;
+            color: #fff;
+            border: 0;
+            border-radius: 999px;
+            padding: 7px 34px 7px 7px;
+            font-family: var(--mono);
+            font-size: 12px;
             font-weight: 700;
-            transition: .2s;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform .2s;
         }
 
-        .btn-primary-custom:hover {
-            background: var(--blue-dark);
-            color: white;
+        .btn-pill:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .btn-pill .arrow {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            background: #fff;
+            color: var(--blue);
+            border-radius: 50%;
+            font-size: 18px;
         }
 
         .btn-link-custom {
-            color: #475467;
-            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .btn-link-custom:hover { color: var(--blue); }
+
+        /* ============ MARQUEE ============ */
+
+        .marquee {
+            background: var(--lime);
+            border-top: 2px solid var(--line);
+            border-bottom: 2px solid var(--line);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            animation: marquee 28s linear infinite;
+        }
+
+        .marquee-track span {
+            padding: 12px 0;
             font-size: 13px;
             font-weight: 700;
-        }
-
-        .btn-link-custom:hover {
-            color: var(--blue);
-        }
-
-        .hero-note {
-            color: #98a2b3;
-            font-size: 11px;
-            margin-top: 18px;
-        }
-
-        /* HERO SIDE */
-
-        .hero-panel {
-            position: relative;
-            min-height: 330px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-panel-main {
-            width: 285px;
-            height: 285px;
-            background: var(--navy);
-            color: white;
-            border-radius: 22px;
-            padding: 32px;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(15, 32, 70, .14);
-        }
-
-        .hero-panel-main::before {
-            content: "";
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 50%;
-            right: 25px;
-            top: 25px;
-        }
-
-        .hero-panel-number {
-            color: #7da7ff;
-            font-size: 54px;
-            font-weight: 800;
-            line-height: 1;
-            margin-top: 35px;
-        }
-
-        .hero-panel-title {
-            font-size: 17px;
-            font-weight: 700;
-            margin-top: 12px;
-        }
-
-        .hero-panel-text {
-            color: #aab5ca;
-            font-size: 12px;
-            line-height: 1.6;
-            margin-top: 8px;
-        }
-
-        .hero-panel-label {
-            position: absolute;
-            background: var(--blue);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 7px;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .8px;
-            right: -25px;
-            bottom: 25px;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, .2);
-        }
-
-        /* SECTION */
-
-        .section {
-            padding: 90px 0;
-        }
-
-        .section-label {
-            color: var(--blue);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.7px;
+            letter-spacing: .06em;
             text-transform: uppercase;
-            margin-bottom: 9px;
         }
 
-        .section-title {
-            color: var(--navy);
-            font-size: 35px;
-            font-weight: 800;
-            letter-spacing: -1.1px;
-            margin-bottom: 13px;
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
         }
 
-        .section-description {
-            color: var(--muted);
-            max-width: 590px;
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 0;
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
         }
 
-        /* ABOUT */
+        /* ============ TENTANG ============ */
 
-        .about-section {
-            background: var(--soft);
+        .about-section { background: var(--cream); }
+
+        .about-section .row { --bs-gutter-x: 0; }
+
+        .about-left {
+            background: var(--blue);
+            color: #fff;
+            padding: 48px 36px;
+            border-right: 2px solid var(--line);
         }
 
-        .about-intro {
-            margin-bottom: 48px;
+        .about-left .big-title {
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(2.4rem, 4.4vw, 4rem);
+            line-height: .95;
+            text-transform: uppercase;
+            color: var(--lime);
+            margin: 0 0 22px;
         }
 
-        .about-content {
-            background: white;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 38px;
+        .about-left p {
+            font-size: 13px;
+            line-height: 1.75;
+            margin-bottom: 14px;
         }
 
-        .about-content h3 {
-            color: var(--navy);
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 17px;
+        .about-left .big-star {
+            font-family: var(--display);
+            font-size: 9rem;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,.55);
+            margin-top: 10px;
         }
 
-        .about-content p {
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.85;
-            margin-bottom: 13px;
-        }
-
-        .about-list {
-            border-top: 1px solid var(--line);
-            margin-top: 25px;
-            padding-top: 20px;
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            height: 100%;
         }
 
         .about-item {
-            display: flex;
-            gap: 13px;
-            margin-bottom: 16px;
+            padding: 36px 30px;
+            border-right: 2px solid var(--line);
+            border-bottom: 2px solid var(--line);
         }
 
-        .about-item:last-child {
-            margin-bottom: 0;
-        }
+        .about-item:nth-child(2n) { border-right: 0; }
+
+        .about-item:nth-child(n+3) { border-bottom: 0; }
 
         .about-item-icon {
-            width: 34px;
-            height: 34px;
-            flex: 0 0 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--blue);
-            background: #eff5ff;
-            border-radius: 7px;
-            font-size: 14px;
+            font-size: 30px;
+            line-height: 1;
+            margin-bottom: 22px;
         }
 
         .about-item strong {
             display: block;
-            color: var(--navy);
-            font-size: 13px;
-            margin-bottom: 3px;
+            font-size: 14px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
         .about-item span {
-            color: var(--muted);
+            display: block;
             font-size: 12px;
-            line-height: 1.5;
+            line-height: 1.65;
+            color: var(--muted);
         }
 
-        /* MEMBERS */
+        /* ============ ANGGOTA ============ */
 
         .members-section {
-            background: white;
+            background: var(--dark);
+            color: #fff;
+            padding: 72px 0 80px;
+            border-top: 2px solid var(--line);
         }
 
         .members-header {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            align-items: end;
-            margin-bottom: 45px;
+            align-items: flex-end;
+            gap: 18px;
+            margin-bottom: 44px;
         }
 
-        .members-count {
-            color: #98a2b3;
-            font-size: 12px;
-            font-weight: 600;
-            padding-bottom: 5px;
-        }
-
-        .member-card {
-            height: 100%;
-            background: white;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 26px;
-            transition: .25s ease;
-        }
-
-        .member-card:hover {
-            border-color: #c7d7f7;
-            box-shadow: 0 15px 35px rgba(16, 24, 40, .07);
-            transform: translateY(-4px);
-        }
-
-        .member-top {
-            display: flex;
-            align-items: center;
-            gap: 17px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #edf0f4;
-            margin-bottom: 18px;
-        }
-
-        .member-photo-wrapper {
-            width: 76px;
-            height: 76px;
-            flex: 0 0 76px;
-            padding: 3px;
-            background: #e8f0ff;
-            border-radius: 50%;
-        }
-
-        .member-image,
-        .member-no-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-
-        .member-image {
-            object-fit: cover;
-            border: 3px solid white;
-        }
-
-        .member-no-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #eff5ff;
-            color: #6f9cf4;
-            border: 3px solid white;
-            font-size: 28px;
-        }
-
-        .member-name {
-            color: var(--navy);
-            font-size: 17px;
-            font-weight: 800;
-            margin: 0 0 7px;
-        }
-
-        .member-position {
-            display: inline-block;
-            color: var(--blue);
-            background: #eff5ff;
-            border-radius: 4px;
-            padding: 5px 8px;
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: .5px;
+        .members-title {
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(2.6rem, 5vw, 4.6rem);
+            line-height: .95;
             text-transform: uppercase;
+            color: var(--lime);
+            margin: 0 0 14px;
         }
 
-        .member-description {
-            color: var(--muted);
+        .members-desc {
+            max-width: 480px;
             font-size: 13px;
             line-height: 1.7;
+            color: #cfcabd;
             margin: 0;
         }
 
-        .member-footer {
-            color: #98a2b3;
-            font-size: 10px;
-            font-weight: 600;
-            margin-top: 20px;
+        .members-count {
+            background: var(--lime);
+            color: var(--ink);
+            border-radius: 999px;
+            padding: 10px 22px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
         }
 
-        .member-footer i {
+        .member-card {
+            position: relative;
+            height: 100%;
+            background: var(--cream);
+            color: var(--ink);
+            border: 2px solid var(--cream);
+            transition: transform .2s, border-color .2s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--lime);
+        }
+
+        .member-number {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            background: var(--lime);
+            color: var(--ink);
+            padding: 5px 11px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .member-photo {
+            background: var(--lime);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1) contrast(1.15);
+            mix-blend-mode: multiply;
+        }
+
+        .member-no-image {
+            font-size: 84px;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .member-body {
+            padding: 18px 18px 20px;
+            border-top: 2px solid var(--ink);
+        }
+
+        .member-name {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 0 4px;
+        }
+
+        .member-position {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
             color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .member-description {
+            font-size: 12px;
+            line-height: 1.65;
+            color: var(--muted);
+            margin: 0;
         }
 
         /* EMPTY */
 
         .empty-state {
             text-align: center;
-            border: 1px dashed #d6deeb;
-            border-radius: 12px;
-            padding: 65px 20px;
-            background: #fbfcfe;
+            border: 2px dashed #555;
+            padding: 64px 20px;
         }
 
         .empty-state i {
-            color: #9db9ef;
+            color: var(--lime);
             font-size: 42px;
         }
 
         .empty-state h5 {
-            color: var(--navy);
-            font-weight: 800;
-            margin-top: 15px;
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-top: 14px;
         }
 
         .empty-state p {
-            color: var(--muted);
+            color: #cfcabd;
             font-size: 13px;
         }
 
-        /* CLOSING */
+        /* ============ CLOSING ============ */
 
         .closing {
-            background: var(--navy);
-            color: white;
-            padding: 78px 0;
-        }
-
-        .closing-line {
-            width: 45px;
-            height: 2px;
-            background: #4f8cff;
-            margin-bottom: 22px;
+            background: var(--lime);
+            border-top: 2px solid var(--line);
+            padding: 72px 0;
         }
 
         .closing h2 {
-            max-width: 700px;
-            font-size: 35px;
-            line-height: 1.2;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
+            max-width: 780px;
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(2.6rem, 6vw, 5.6rem);
+            line-height: .95;
+            text-transform: uppercase;
+            margin: 0 0 22px;
         }
 
+        .closing h2 .blue { color: var(--blue); }
+
         .closing p {
-            max-width: 600px;
-            color: #aab5ca;
-            font-size: 14px;
-            line-height: 1.8;
+            max-width: 560px;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.75;
             margin: 0;
         }
 
-        /* FOOTER */
+        /* ============ FOOTER ============ */
 
         footer {
-            background: #071126;
-            color: #74819a;
-            padding: 23px 0;
+            background: var(--ink);
+            color: var(--lime);
+            padding: 24px 0;
             font-size: 11px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
         }
 
-        footer strong {
-            color: #cbd5e1;
-        }
+        footer strong { color: #fff; }
 
-        footer span {
-            color: #6f9cf4;
-        }
-
-        /* MOBILE */
+        /* ============ MOBILE ============ */
 
         @media (max-width: 991px) {
-            .hero {
-                padding: 75px 0;
+            .navbar-brand { border-right: 0; padding: 12px 20px; }
+
+            .navbar-collapse {
+                border-top: 2px solid var(--line);
+                padding: 12px 20px;
             }
 
-            .hero h1 {
-                font-size: 48px;
+            .navbar-nav .nav-link { padding: 10px 0 !important; }
+
+            .nav-status { padding: 8px 0; }
+
+            .hero { padding: 44px 0 56px; }
+
+            .hero-content { padding: 0 20px; }
+
+            .hero-photo {
+                max-width: 340px;
+                margin: 32px 0;
             }
 
-            .hero-panel {
-                margin-top: 55px;
-            }
+            .hero-side { padding-left: calc(var(--bs-gutter-x) * .5); }
 
-            .members-header {
-                display: block;
-            }
-
-            .members-count {
-                margin-top: 12px;
+            .about-left {
+                border-right: 0;
+                border-bottom: 2px solid var(--line);
             }
         }
 
-        @media (max-width: 767px) {
-            .navbar-nav .nav-link {
-                margin-left: 0;
-                padding: 9px 0;
-            }
+        @media (max-width: 575px) {
+            .about-grid { grid-template-columns: 1fr; }
 
-            .hero {
-                padding: 65px 0 75px;
-            }
+            .about-item { border-right: 0 !important; }
 
-            .hero h1 {
-                font-size: 39px;
-                letter-spacing: -1.7px;
-            }
+            .about-item:nth-child(n+3) { border-bottom: 2px solid var(--line); }
 
-            .hero-text {
-                font-size: 14px;
-            }
+            .about-item:last-child { border-bottom: 0; }
 
-            .hero-actions {
-                display: block;
-            }
+            .members-section { padding: 56px 0 64px; }
 
-            .btn-primary-custom {
-                display: inline-block;
-                margin-bottom: 15px;
-            }
-
-            .hero-panel {
-                min-height: 300px;
-                margin-top: 40px;
-            }
-
-            .hero-panel-main {
-                width: 250px;
-                height: 250px;
-            }
-
-            .hero-panel-label {
-                right: 0;
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-
-            .section-title {
-                font-size: 29px;
-            }
-
-            .about-content {
-                padding: 27px;
-            }
-
-            .member-card {
-                padding: 22px;
-            }
-
-            .closing {
-                padding: 65px 0;
-            }
-
-            .closing h2 {
-                font-size: 29px;
-            }
+            .closing { padding: 56px 0; }
         }
     </style>
 </head>
@@ -657,10 +611,13 @@
     <!-- NAVBAR -->
 
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <span>PPKM</span> Informatika Kelompok 7
-                <small>hilap ppkm teh naon eum</small>
+                <span class="logo-star">✱</span>
+                <span>
+                    PPKM Informatika
+                    <small>Kelompok 7</small>
+                </span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
@@ -668,11 +625,13 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto ms-lg-3">
                     <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#anggota">Anggota</a></li>
                 </ul>
+
+                <div class="nav-status">Kelompok 7</div>
             </div>
         </div>
     </nav>
@@ -681,16 +640,35 @@
     <!-- HERO -->
 
     <section class="hero" id="home">
-        <div class="container hero-content">
+        <div class="container-fluid hero-content">
             <div class="row align-items-center">
-                <div class="col-lg-7">
+
+                <!-- KIRI: HEADLINE -->
+                <div class="col-lg-5">
                     <div class="hero-kicker">PPKM Informatika</div>
 
                     <h1>
-                        Kelompok PPKM urang 
-                        <span>Kelompok 7</span>
+                        <span class="line">Kelompok</span>
+                        <span class="line">PPKM <span class="star">✱</span></span>
+                        <span class="line">urang</span>
+                        <span class="line blue">Kelompok 7.</span>
                     </h1>
+                </div>
 
+                <!-- TENGAH: FOTO -->
+                <div class="col-lg-3">
+                    <div class="hero-photo">
+                        {{-- Taruh foto di public/img/kelompok7.png (PNG transparan paling bagus) --}}
+                        @if(file_exists(public_path('img/kelompok7.png')))
+                            <img src="{{ asset('img/kelompok7.png') }}" alt="Kelompok 7">
+                        @else
+                            <div class="photo-placeholder">✱</div>
+                        @endif
+                    </div>
+                </div>
+
+                <!-- KANAN: TEKS + TOMBOL -->
+                <div class="col-lg-4 hero-side">
                     <p class="hero-text">
                         PPKM Informatika menjadi ruang bagi mahasiswa untuk
                         berkembang, berkolaborasi, dan mengambil bagian dalam
@@ -698,72 +676,39 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a href="#anggota" class="btn btn-primary-custom">
-                            Kenali Anggota <i class="bi bi-arrow-right ms-2"></i>
+                        <a href="#anggota" class="btn-pill">
+                            <span class="arrow"><i class="bi bi-arrow-right"></i></span>
+                            Kenali Anggota
                         </a>
 
-                        <a href="#tentang" class="btn-link-custom">
-                            Tentang PPkM <i class="bi bi-arrow-down-short ms-1"></i>
-                        </a>
-                    </div>
-
-                    {{-- <div class="hero-note">
-                        Informatika · Kemahasiswaan · Kolaborasi
-                    </div> --}}
-                </div>
-
-                <div class="col-lg-5">
-                    <div class="hero-panel">
-                        <div class="hero-panel-main">
-                            <div class="small text-uppercase fw-semibold text-white-50">
-                                Our Community
-                            </div>
-
-                            <div class="hero-panel-number">01</div>
-
-                            <div class="hero-panel-title">
-                                Satu ruang untuk berkembang.
-                            </div>
-
-                            <div class="hero-panel-text">
-                                Tempat ide, pengalaman, dan kontribusi
-                                mahasiswa bertemu.
-                            </div>
-                        </div>
-
-                        <div class="hero-panel-label">
-                            INFORMATIKA
-                        </div>
+                        <a href="#tentang" class="btn-link-custom">Tentang PPkM</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
 
+    <!-- MARQUEE -->
+
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>PPKM ✱ INFORMATIKA ✱ KELOMPOK 7 ✱ KOLABORASI ✱ PENGEMBANGAN ✱ KONTRIBUSI ✱ BERPROSES ✱ &nbsp;</span>
+            <span>PPKM ✱ INFORMATIKA ✱ KELOMPOK 7 ✱ KOLABORASI ✱ PENGEMBANGAN ✱ KONTRIBUSI ✱ BERPROSES ✱ &nbsp;</span>
+        </div>
+    </div>
+
+
     <!-- TENTANG -->
 
-    <section class="section about-section" id="tentang">
-        <div class="container">
-            <div class="row align-items-end about-intro">
-                <div class="col-lg-6">
-                    <div class="section-label">Tentang Kami</div>
-                    <h2 class="section-title">Bukan hanya sebuah kelompok.</h2>
-                </div>
+    <section class="about-section" id="tentang">
+        <div class="container-fluid p-0">
+            <div class="row">
 
-                {{-- <div class="col-lg-5 offset-lg-1 mt-3 mt-lg-0">
-                    <p class="section-description">
-                        PPKM Informatika menjadi bagian dari perjalanan mahasiswa
-                        dalam membangun pengalaman, relasi, dan kontribusi
-                        di lingkungan akademik maupun organisasi.
-                    </p>
-                </div> --}}
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-7">
-                    <div class="about-content h-100">
-                        <h3>Tentang PPkM Informatika</h3>
+                <div class="col-lg-5">
+                    <div class="about-left h-100">
+                        <h2 class="big-title">Bukan hanya sebuah kelompok.</h2>
 
                         <p>
                             PPKM Informatika merupakan wadah yang mempertemukan
@@ -781,58 +726,41 @@
                             Halaman ini menjadi media sederhana untuk mengenal
                             anggota dan bagian dari struktur PPKM Informatika.
                         </p>
+
+                        <div class="big-star" aria-hidden="true">✱</div>
                     </div>
                 </div>
 
-                <div class="col-lg-5">
-                    <div class="about-content h-100">
-                        <div class="about-list border-0 mt-0 pt-0">
-                            <div class="about-item">
-                                <div class="about-item-icon">
-                                    <i class="bi bi-people"></i>
-                                </div>
+                <div class="col-lg-7">
+                    <div class="about-grid">
 
-                                <div>
-                                    <strong>Kolaborasi</strong>
-                                    <span>Membangun kerja sama melalui kegiatan dan pengalaman bersama.</span>
-                                </div>
-                            </div>
-
-                            <div class="about-item">
-                                <div class="about-item-icon">
-                                    <i class="bi bi-lightbulb"></i>
-                                </div>
-
-                                <div>
-                                    <strong>Pengembangan</strong>
-                                    <span>Mendorong mahasiswa untuk aktif belajar dan berkembang.</span>
-                                </div>
-                            </div>
-
-                            <div class="about-item">
-                                <div class="about-item-icon">
-                                    <i class="bi bi-diagram-3"></i>
-                                </div>
-
-                                <div>
-                                    <strong>Kontribusi</strong>
-                                    <span>Memberikan ruang untuk mengambil peran dalam lingkungan Informatika.</span>
-                                </div>
-                            </div>
-
-                            <div class="about-item">
-                                <div class="about-item-icon">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-
-                                <div>
-                                    <strong>Berproses</strong>
-                                    <span>Karena pengalaman terbaik dibangun melalui proses bersama.</span>
-                                </div>
-                            </div>
+                        <div class="about-item">
+                            <div class="about-item-icon"><i class="bi bi-people"></i></div>
+                            <strong>Kolaborasi</strong>
+                            <span>Membangun kerja sama melalui kegiatan dan pengalaman bersama.</span>
                         </div>
+
+                        <div class="about-item">
+                            <div class="about-item-icon"><i class="bi bi-lightbulb"></i></div>
+                            <strong>Pengembangan</strong>
+                            <span>Mendorong mahasiswa untuk aktif belajar dan berkembang.</span>
+                        </div>
+
+                        <div class="about-item">
+                            <div class="about-item-icon"><i class="bi bi-diagram-3"></i></div>
+                            <strong>Kontribusi</strong>
+                            <span>Memberikan ruang untuk mengambil peran dalam lingkungan Informatika.</span>
+                        </div>
+
+                        <div class="about-item">
+                            <div class="about-item-icon"><i class="bi bi-arrow-up-right"></i></div>
+                            <strong>Berproses</strong>
+                            <span>Karena pengalaman terbaik dibangun melalui proses bersama.</span>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -840,61 +768,51 @@
 
     <!-- ANGGOTA -->
 
-    <section class="section members-section" id="anggota">
-        <div class="container">
+    <section class="members-section" id="anggota">
+        <div class="container-fluid" style="padding: 0 40px;">
             <div class="members-header">
                 <div>
-                    <div class="section-label">Struktur Anggota</div>
+                    <h2 class="members-title">Orang-orang<br>di balik PPKM.</h2>
 
-                    <h2 class="section-title mb-2">
-                        Orang-orang di balik PPKM.
-                    </h2>
-
-                    <p class="section-description">
+                    <p class="members-desc">
                         Kenali anggota yang mengambil bagian dalam perjalanan
                         PPKM Informatika.
                     </p>
                 </div>
 
                 <div class="members-count">
-                    <i class="bi bi-people me-1"></i>
                     {{ $members->count() }} Anggota Terdaftar
                 </div>
             </div>
 
             <div class="row g-4">
                 @forelse($members as $member)
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="member-card">
-                            <div class="member-top">
-                                <div class="member-photo-wrapper">
-                                    @if($member->foto)
-                                        <img src="{{ asset('uploads/members/' . $member->foto) }}" alt="{{ $member->nama }}" class="member-image">
-                                    @else
-                                        <div class="member-no-image">
-                                            <i class="bi bi-person"></i>
-                                        </div>
-                                    @endif
-                                </div>
+                            <div class="member-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</div>
 
-                                <div>
-                                    <h5 class="member-name">{{ $member->nama }}</h5>
-                                    <span class="member-position">{{ $member->jabatan }}</span>
-                                </div>
+                            <div class="member-photo">
+                                @if($member->foto)
+                                    <img src="{{ asset('uploads/members/' . $member->foto) }}" alt="{{ $member->nama }}" class="member-image">
+                                @else
+                                    <div class="member-no-image">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                @endif
                             </div>
 
-                            @if($member->deskripsi)
-                                <p class="member-description">{{ $member->deskripsi }}</p>
-                            @else
-                                <p class="member-description">
-                                    Bagian dari PPKM Informatika yang
-                                    berkontribusi dalam perjalanan organisasi.
-                                </p>
-                            @endif
+                            <div class="member-body">
+                                <h5 class="member-name">{{ $member->nama }}</h5>
+                                <span class="member-position">{{ $member->jabatan }}</span>
 
-                            <div class="member-footer">
-                                <i class="bi bi-dot"></i>
-                                PPKM Informatika
+                                @if($member->deskripsi)
+                                    <p class="member-description">{{ $member->deskripsi }}</p>
+                                @else
+                                    <p class="member-description">
+                                        Bagian dari PPKM Informatika yang
+                                        berkontribusi dalam perjalanan organisasi.
+                                    </p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -915,11 +833,9 @@
     <!-- CLOSING -->
 
     <section class="closing">
-        <div class="container">
-            <div class="closing-line"></div>
-
+        <div class="container-fluid" style="padding: 0 40px;">
             <h2>
-                Tumbuh bersama, berkontribusi untuk Informatika.
+                Tumbuh bersama, berkontribusi untuk <span class="blue">Informatika.</span>
             </h2>
 
             <p>
@@ -934,13 +850,13 @@
     <!-- FOOTER -->
 
     <footer>
-        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap gap-2" style="padding: 0 40px;">
             <div>
-                <strong>PPKM Informatika</strong> · Universitas
+                <strong>PPKM Informatika</strong> / Universitas
             </div>
 
             <div>
-                © {{ date('Y') }} <span>PPKM Informatika</span>
+                © {{ date('Y') }} PPKM Informatika
             </div>
         </div>
     </footer>
