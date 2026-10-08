@@ -1279,6 +1279,32 @@
             });
         }
 
+        <script>
+    const audio  = document.getElementById('bgMusic');
+    const btn    = document.getElementById('musicBtn');
+    const player = document.getElementById('musicPlayer');
+    const icon   = btn.querySelector('i');
+
+    audio.volume = 0.5; // 0 sampai 1
+
+    btn.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    });
+
+    audio.addEventListener('play', () => {
+        player.classList.add('playing');
+        icon.className = 'bi bi-pause-fill';
+    });
+
+    audio.addEventListener('pause', () => {
+        player.classList.remove('playing');
+        icon.className = 'bi bi-play-fill';
+    });
+</script>
        
 
         // SEARCH MEMBER
