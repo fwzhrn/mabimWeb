@@ -1238,8 +1238,7 @@
     </button>
 
     <div class="music-info">
-        <div class="music-title">Judul Lagu</div>
-        <div class="music-artist">Nama Artis</div>
+        <div class="music-title">TANTEEE</div>
     </div>
 
     <div class="music-bars" aria-hidden="true">
