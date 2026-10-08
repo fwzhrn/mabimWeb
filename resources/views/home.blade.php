@@ -873,11 +873,7 @@
                     <h1>
                         <span class="line">Kelompok</span>
                         <span class="line">PPKM <span class="star">✱</span></span>
-<<<<<<< HEAD
                         <span class="line">-</span>
-=======
-                        <span class="line">------------</span
->>>>>>> 30193a742b4105987736f9fdf92ba054a6427a32
                         <span class="line blue">Kelompok 7.</span>
                     </h1>
                 </div>
