@@ -981,7 +981,7 @@
                 <div class="col-lg-4 hero-side">
                     <p class="hero-text">
                         PPKM Informatika menjadi ruang bagi mahasiswa untuk
-                        berkembang, berkolaborasi, dan mengambil bagian dalam
+                        menumbuhkan nalar, menguatkan karakter, dan menjalin persatuan melalui
                         berbagai kegiatan kemahasiswaan di lingkungan Informatika.
                     </p>
 
