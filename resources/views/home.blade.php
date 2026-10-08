@@ -1144,22 +1144,22 @@
     </footer>
 
      <!-- MUSIC PLAYER -->
-<div class="music-player" id="musicPlayer">
-    <button type="button" class="music-btn" id="musicBtn" aria-label="Putar atau jeda lagu">
-        <i class="bi bi-play-fill"></i>
-    </button>
+        <div class="music-player" id="musicPlayer">
+             <button type="button" class="music-btn" id="musicBtn" aria-label="Putar atau jeda lagu">
+                <i class="bi bi-play-fill"></i>
+            </button>
 
-    <div class="music-info">
-        <div class="music-title">Judul Lagu</div>
-        <div class="music-artist">Nama Artis</div>
-    </div>
+            <div class="music-info">
+                <div class="music-title">Judul Lagu</div>
+                <div class="music-artist">Nama Artis</div>
+            </div>
 
-    <div class="music-bars" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
-    </div>
+            <div class="music-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+            </div>
 
-    <audio id="bgMusic" src="{{ asset('audio/lagu.mp3') }}" loop preload="none"></audio>
-</div>
+             <audio id="bgMusic" src="{{ asset('audio/lagu.mp3') }}" loop preload="none"></audio>
+        </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
