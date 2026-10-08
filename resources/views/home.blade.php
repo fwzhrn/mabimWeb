@@ -1083,10 +1083,11 @@
             <div class="members-header">
                 <div>
                     <div class="hero-kicker" style="color:#6f9df7;">STRUKTUR KELOMPOK-7</div>
-                    <h2 class="members-title">Orang-orang<br>di balik <span class="accent">PPKM KELOMPOK-7.</span></h2>
+                    <h2 class="members-title">Meet the Team<span class="accent">PPKM KELOMPOK-7.</span></h2>
                     <p class="members-desc">
-                        Kenali lebih dekat orang-orang yang mengambil bagian dalam perjalanan
-                        PPKM Informatika. Klik salah satu card untuk melihat profil lengkapnya.
+                        Setiap cerita dan perjalanan punya orang-orang di dalamnya.
+                        Yuk, kenalan dengan kami dan lihat siapa saja yang menjadi bagian dari Kelompok 7.
+                        Check it out!
                     </p>
                 </div>
 
