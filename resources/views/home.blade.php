@@ -1047,25 +1047,25 @@
                         <div class="about-item">
                             <div class="about-item-icon"><i class="bi bi-people"></i></div>
                             <strong>Kolaborasi</strong>
-                            <span>Membangun kerja sama melalui kegiatan dan pengalaman bersama.</span>
+                            <span>Bersinergi dan menciptakan dampak melalui pengalaman kolektif.</span>
                         </div>
 
                         <div class="about-item">
                             <div class="about-item-icon"><i class="bi bi-lightbulb"></i></div>
                             <strong>Pengembangan</strong>
-                            <span>Mendorong mahasiswa untuk aktif belajar dan berkembang.</span>
+                            <span>Memotivasi mahasiswa untuk adaptif, berkembang, dan siap menghadapi tantangan.</span>
                         </div>
 
                         <div class="about-item">
                             <div class="about-item-icon"><i class="bi bi-diagram-3"></i></div>
                             <strong>Kontribusi</strong>
-                            <span>Memberikan ruang untuk mengambil peran dalam lingkungan Informatika.</span>
+                            <span>Menginspirasi mahasiswa untuk mendedikasikan keahliannya di ranah Informatika.</span>
                         </div>
 
                         <div class="about-item">
                             <div class="about-item-icon"><i class="bi bi-arrow-up-right"></i></div>
                             <strong>Berproses</strong>
-                            <span>Karena pengalaman terbaik dibangun melalui proses bersama.</span>
+                            <span>Menikmati perjalanan belajar demi membentuk masa depan yang lebih baik.</span>
                         </div>
 
                     </div>
