@@ -660,7 +660,7 @@
         <div class="container">
             <a class="navbar-brand" href="/">
                 <span>PPKM</span> Informatika Kelompok 7
-                <small>hilap ppkm teh naon eum</small>
+                <small>ppkm</small>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
