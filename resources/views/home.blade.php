@@ -873,7 +873,7 @@
                     <h1>
                         <span class="line">Kelompok</span>
                         <span class="line">PPKM <span class="star">✱</span></span>
-                        <span class="line">urang</span>
+                        <span class="line">------------</span
                         <span class="line blue">Kelompok 7.</span>
                     </h1>
                 </div>
