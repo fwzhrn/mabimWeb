@@ -923,10 +923,10 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <span class="logo-star">✱</span>
+                <span class="logo-star">7</span>
                 <span>
                     PPKM Informatika
-                    <small>Kelompok 7</small>
+                    <small>Satu Ideologi Satu Solidaritas</small>
                 </span>
             </a>
 
@@ -941,7 +941,7 @@
                     <li class="nav-item"><a class="nav-link" href="#anggota">Anggota</a></li>
                 </ul>
 
-                <div class="nav-status">Kelompok 7</div>
+                <div class="nav-status">Angkatan 26</div>
             </div>
         </div>
     </nav>
