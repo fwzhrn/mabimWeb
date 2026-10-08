@@ -873,7 +873,7 @@
                     <h1>
                         <span class="line">Kelompok</span>
                         <span class="line">PPKM <span class="star">✱</span></span>
-                        <span class="line">urang</span>
+                        <span class="line">-</span>
                         <span class="line blue">Kelompok 7.</span>
                     </h1>
                 </div>
@@ -904,7 +904,7 @@
                             Kenali Anggota
                         </a>
 
-                        <a href="#tentang" class="btn-link-custom">Tentang PPkM</a>
+                        <a href="#tentang" class="btn-link-custom">Tentang PPKM</a>
                     </div>
                 </div>
 
@@ -995,8 +995,8 @@
         <div class="container-fluid" style="padding: 0 40px;">
             <div class="members-header">
                 <div>
-                    <div class="hero-kicker" style="color:#6f9df7;">STRUKTUR KELOMPOK 07</div>
-                    <h2 class="members-title">Orang-orang<br>di balik <span class="accent">PPKM.</span></h2>
+                    <div class="hero-kicker" style="color:#6f9df7;">STRUKTUR KELOMPOK-7</div>
+                    <h2 class="members-title">Orang-orang<br>di balik <span class="accent">PPKM KELOMPOK-7.</span></h2>
                     <p class="members-desc">
                         Kenali lebih dekat orang-orang yang mengambil bagian dalam perjalanan
                         PPKM Informatika. Klik salah satu card untuk melihat profil lengkapnya.
