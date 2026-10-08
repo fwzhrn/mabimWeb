@@ -1250,7 +1250,8 @@
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         // PROFILE MODAL
         const memberModal = document.getElementById('memberModal');
@@ -1279,10 +1280,6 @@
                 }
             });
         }
-
-        <script>
-    </script>
-       
 
         // SEARCH MEMBER
         const searchInput = document.getElementById('memberSearch');
@@ -1315,32 +1312,41 @@
                 }
             });
         });
+
+        // MUSIK
+        const bgAudio = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicPlayer = document.getElementById('musicPlayer');
+        const musicIcon = musicBtn.querySelector('i');
+
+        bgAudio.volume = 0.5;
+
+        musicBtn.addEventListener('click', async () => {
+            try {
+                if (bgAudio.paused) {
+                    await bgAudio.play();
+                } else {
+                    bgAudio.pause();
+                }
+            } catch (e) {
+                alert('Gagal play: ' + e.name + ' - ' + e.message);
+            }
+        });
+
+        bgAudio.addEventListener('play', () => {
+            musicPlayer.classList.add('playing');
+            musicIcon.className = 'bi bi-pause-fill';
+        });
+
+        bgAudio.addEventListener('pause', () => {
+            musicPlayer.classList.remove('playing');
+            musicIcon.className = 'bi bi-play-fill';
+        });
+
+        bgAudio.addEventListener('error', () => {
+            alert('File lagu bermasalah.\nAlamat yang dicari browser:\n' + bgAudio.currentSrc);
+        });
     </script>
-
-const audio  = document.getElementById('bgMusic');
-    const btn    = document.getElementById('musicBtn');
-    const player = document.getElementById('musicPlayer');
-    const icon   = btn.querySelector('i');
-
-    audio.volume = 0.5; // 0 sampai 1
-
-    btn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    });
-
-    audio.addEventListener('play', () => {
-        player.classList.add('playing');
-        icon.className = 'bi bi-pause-fill';
-    });
-
-    audio.addEventListener('pause', () => {
-        player.classList.remove('playing');
-        icon.className = 'bi bi-play-fill';
-    });
 
 </body>
 </html>
