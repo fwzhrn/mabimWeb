@@ -782,6 +782,93 @@
 
         footer strong { color: #fff; }
 
+        /* ============ MUSIC PLAYER ============ */
+
+        .music-player {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--ink);
+            color: var(--lime);
+            border: 2px solid var(--lime);
+            border-radius: 999px;
+            padding: 6px 18px 6px 6px;
+            max-width: calc(100vw - 40px);
+        }
+
+        .music-btn {
+            display: grid;
+            place-items: center;
+            flex: 0 0 40px;
+            width: 40px;
+            height: 40px;
+            background: var(--blue);
+            color: #fff;
+            border: 0;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform .2s;
+        }
+
+        .music-btn:hover { transform: scale(1.08); }
+
+        .music-info { min-width: 0; line-height: 1.3; }
+
+        .music-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+
+        .music-artist {
+            font-size: 10px;
+            color: #cfcabd;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+
+        /* equalizer, cuma gerak pas lagu diputar */
+        .music-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 18px;
+        }
+
+        .music-bars span {
+            width: 3px;
+            height: 4px;
+            background: var(--lime);
+        }
+
+        .music-player.playing .music-bars span {
+            animation: eq .8s ease-in-out infinite;
+        }
+
+        .music-player.playing .music-bars span:nth-child(2) { animation-delay: .15s; }
+        .music-player.playing .music-bars span:nth-child(3) { animation-delay: .3s; }
+        .music-player.playing .music-bars span:nth-child(4) { animation-delay: .45s; }
+
+        @keyframes eq {
+            0%, 100% { height: 4px; }
+            50%      { height: 18px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .music-player.playing .music-bars span { animation: none; height: 10px; }
+}
+
         /* ============ MOBILE ============ */
 
         @media (max-width: 991px) {
@@ -1144,22 +1231,22 @@
     </footer>
 
      <!-- MUSIC PLAYER -->
-        <div class="music-player" id="musicPlayer">
-             <button type="button" class="music-btn" id="musicBtn" aria-label="Putar atau jeda lagu">
-                <i class="bi bi-play-fill"></i>
-            </button>
+<div class="music-player" id="musicPlayer">
+    <button type="button" class="music-btn" id="musicBtn" aria-label="Putar atau jeda lagu">
+        <i class="bi bi-play-fill"></i>
+    </button>
 
-            <div class="music-info">
-                <div class="music-title">Judul Lagu</div>
-                <div class="music-artist">Nama Artis</div>
-            </div>
+    <div class="music-info">
+        <div class="music-title">Judul Lagu</div>
+        <div class="music-artist">Nama Artis</div>
+    </div>
 
-            <div class="music-bars" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-            </div>
+    <div class="music-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+    </div>
 
-             <audio id="bgMusic" src="{{ asset('audio/lagu.mp3') }}" loop preload="none"></audio>
-        </div>
+    <audio id="bgMusic" src="{{ asset('audio/lagu.mp3') }}" loop preload="none"></audio>
+</div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
