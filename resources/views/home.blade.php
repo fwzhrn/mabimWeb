@@ -110,6 +110,28 @@
             border-radius: 50%;
         }
 
+        .nav-pdf {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border: 2px solid var(--ink);
+            background: var(--blue);
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: 10px;
+            font-weight: 700;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .nav-pdf:hover {
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(18,59,143,.18);
+        }
+
         .navbar-toggler {
             border: 2px solid var(--ink);
             border-radius: 0;
@@ -162,20 +184,24 @@
             width: .78em;
             height: .78em;
             margin-left: .08em;
-            background: var(--ink);
-            color: var(--cream);
-            border-radius: 50%;
-            font-size: .62em;
-            line-height: 1;
             vertical-align: .08em;
+            flex-shrink: 0;
+        }
+
+        .hero h1 .star img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 0 rgba(0,0,0,0));
         }
 
         /* FOTO TENGAH */
 
         .hero-photo {
             position: relative;
-            background: var(--blue);
-            aspect-ratio: 3 / 4;
+            background: inherit;;
+            aspect-ratio: 1.1;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -183,11 +209,11 @@
         }
 
         .hero-photo img {
-            width: 100%;
+            width: 330px;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(1) contrast(1.25);
-            mix-blend-mode: multiply;
+            filter: none;
+            mix-blend-mode: normal;
         }
 
         .hero-photo .photo-placeholder {
@@ -697,7 +723,7 @@
         .profile-position {
             display: inline-block;
             align-self: flex-start;
-            background: var(--blue);
+            background: var(--blue);    
             color: #fff;
             padding: 8px 12px;
             font-size: 10px;
@@ -970,9 +996,12 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#anggota">Anggota</a></li>
+                    
                 </ul>
+                <a href="{{ asset('files/SWOT IF26.pdf') }}" target="_blank" rel="noopener" class="nav-pdf">Lihat PPT</a>
 
                 <div class="nav-status">Angkatan 26</div>
+                
             </div>
         </div>
     </nav>
@@ -990,7 +1019,7 @@
 
                     <h1>
                         <span class="line">Kelompok</span>
-                        <span class="line">PPKM <span class="star">✱</span></span>
+                        <span class="line">PPKM <span class="star"><img src="img/kelompok7.png.jpg"></span></span>
                         <span class="line">-</span>
                         <span class="line blue">Kelompok 7.</span>
                     </h1>
@@ -1000,8 +1029,8 @@
                 <div class="col-lg-3">
                     <div class="hero-photo">
                         {{-- Taruh foto di public/img/kelompok7.png (PNG transparan paling bagus) --}}
-                        @if(file_exists(public_path('img/kelompok7.png')))
-                            <img src="{{ asset('img/kelompok7.png') }}" alt="Kelompok 7">
+                        @if(file_exists(public_path('img/kelompok7.png.jpg')))
+                            <img src="img/kelompok7.png.jpg" alt="Kelompok 7">
                         @else
                             <div class="photo-placeholder">✱</div>
                         @endif
