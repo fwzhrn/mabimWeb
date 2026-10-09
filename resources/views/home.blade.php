@@ -1018,23 +1018,26 @@
 
                 <div class="col-lg-5">
                     <div class="about-left h-100">
-                        <h2 class="big-title">Bukan hanya sebuah kelompok.</h2>
+                        <h2 class="big-title">LEBIH DARI SEKADAR KEBERSAMAAN.</h2>
 
                         <p>
-                            PPKM Informatika merupakan wadah yang mempertemukan
-                            mahasiswa dengan berbagai kegiatan dan pengalaman
-                            dalam lingkungan Informatika.
+                            PPKM Informatika menjadi ruang bagi mahasiswa
+                            untuk saling mengenal, bertukar gagasan, dan
+                            tumbuh bersama dalam satu lingkungan yang penuh
+                            potensi.
                         </p>
 
                         <p>
-                            Melalui kerja sama dan keterlibatan setiap anggota,
-                            berbagai kegiatan dapat dijalankan dengan semangat
-                            untuk berkembang bersama.
+                            Setiap individu membawa perspektif dan kemampuan
+                            yang berbeda. Melalui kolaborasi, perbedaan tersebut
+                            menjadi kekuatan untuk menciptakan pengalaman dan
+                            dampak yang berarti.
                         </p>
 
                         <p>
-                            Halaman ini menjadi media sederhana untuk mengenal
-                            anggota dan bagian dari struktur PPKM Informatika.
+                            Halaman ini menjadi langkah awal untuk mengenal
+                            individu, peran, dan kontribusi yang membentuk
+                            PPKM Informatika.
                         </p>
 
                         <div class="big-star" aria-hidden="true">✱</div>
