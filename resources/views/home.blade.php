@@ -1243,7 +1243,7 @@
     </button>
 
     <div class="music-info">
-        <div class="music-title">TANTEEE</div>
+        <div class="music-title">LEBIH DARI INDAH</div>
     </div>
 
     <div class="music-bars" aria-hidden="true">
