@@ -1205,13 +1205,15 @@
     <section class="closing">
         <div class="container-fluid" style="padding: 0 40px;">
             <h2>
-                Tumbuh bersama, berkontribusi untuk <span class="blue">Informatika.</span>
+                Bertumbuh bersama, berkarakter kuat, bersatu dalam <span class="blue">Informatika.</span>
             </h2>
 
             <p>
-                Setiap kegiatan memberikan pengalaman.
-                Setiap anggota memberikan kontribusi.
-                Dan setiap proses menjadi bagian dari perjalanan PPKM Informatika.
+                Setiap anggota memiliki peran.
+                Setiap kelompok saling menguatkan.
+                Dan setiap kebersamaan menjadi langkah
+                untuk membangun angkatan Informatika yang bernalar,
+                berkarakter, dan bersatu bersama PPKM Informatika 2026.
             </p>
         </div>
     </section>
