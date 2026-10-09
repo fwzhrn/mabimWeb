@@ -200,20 +200,33 @@
 
         .hero-photo {
             position: relative;
-            background: inherit;;
+            background: #edf3ff;
             aspect-ratio: 1.1;
-            overflow: hidden;
+            overflow: visible;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 16px;
+            border: 2px solid var(--ink);
+            box-shadow: 12px 12px 0 var(--blue);
+        }
+
+        .hero-photo::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(10, 22, 51, 0.55);
+            pointer-events: none;
         }
 
         .hero-photo img {
-            width: 330px;
+            width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             filter: none;
             mix-blend-mode: normal;
+            border: 2px solid var(--ink);
         }
 
         .hero-photo .photo-placeholder {
@@ -1029,8 +1042,8 @@
                 <div class="col-lg-3">
                     <div class="hero-photo">
                         {{-- Taruh foto di public/img/kelompok7.png (PNG transparan paling bagus) --}}
-                        @if(file_exists(public_path('img/kelompok7.png.jpg')))
-                            <img src="img/kelompok7.png.jpg" alt="Kelompok 7">
+                        @if(file_exists(public_path('img/WhatsApp Image 2026-10-09 at 23.00.03.jpeg')))
+                            <img src="img/WhatsApp Image 2026-10-09 at 23.00.03.jpeg" alt="Kelompok 7">
                         @else
                             <div class="photo-placeholder">✱</div>
                         @endif
