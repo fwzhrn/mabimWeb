@@ -1247,7 +1247,7 @@
         <span></span><span></span><span></span><span></span>
     </div>
 
-    <audio id="bgMusic" src="{{ asset('audio/lagu.mp3') }}" loop preload="none"></audio>
+    <audio id="bgMusic" src="{{ asset('lagu.mp3') }}" loop preload="none"></audio>
 </div>
 
 
