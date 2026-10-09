@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- FONT BARU: Anton (judul) + Space Mono (teks) -->
+    <!-- FONT BARU: Anton (judul) + Space Grotesk (teks) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -24,7 +24,7 @@
             --muted: #52627d;
             --line: #0a1633;
             --display: 'Anton', 'Impact', sans-serif;
-            --mono: 'Space Mono', ui-monospace, monospace;
+            --sans: 'Space Grotesk', 'Segoe UI', sans-serif;
         }
 
         * { box-sizing: border-box; }
@@ -35,7 +35,7 @@
             margin: 0;
             color: var(--ink);
             background: var(--cream);
-            font-family: var(--mono);
+            font-family: var(--sans);
         }
 
         a { color: inherit; }
@@ -72,7 +72,7 @@
 
         .navbar-brand small {
             display: block;
-            font-family: var(--mono);
+            font-family: var(--sans);
             font-size: 9px;
             letter-spacing: 0;
             text-transform: none;
@@ -225,7 +225,7 @@
             border: 0;
             border-radius: 999px;
             padding: 7px 34px 7px 7px;
-            font-family: var(--mono);
+            font-family: var(--sans);
             font-size: 12px;
             font-weight: 700;
             letter-spacing: .06em;
@@ -560,15 +560,31 @@
             margin-bottom: 12px;
         }
 
-        .member-description {
-            font-size: 11px;
-            line-height: 1.65;
-            color: var(--muted);
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+        /* LINK INSTAGRAM DI KARTU */
+        .member-ig {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            max-width: 100%;
             overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--blue-bright);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .member-ig:hover {
+            color: var(--blue);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .member-ig-empty {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
         }
 
         .member-click {
@@ -691,13 +707,28 @@
             margin-bottom: 24px;
         }
 
-        .profile-description {
-            color: var(--muted);
-            font-family: var(--mono);
+        /* TOMBOL INSTAGRAM DI MODAL */
+        .profile-ig {
+            align-items: center;
+            align-self: flex-start;
+            gap: 8px;
+            max-width: 100%;
+            padding: 10px 16px;
+            border: 2px solid var(--ink);
+            color: var(--ink);
             font-size: 12px;
-            line-height: 1.8;
-            margin: 0;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s, color .2s;
         }
+
+        .profile-ig span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .profile-ig:hover { background: var(--ink); color: #fff; }
 
         .profile-footer {
             margin-top: 28px;
@@ -867,7 +898,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             .music-player.playing .music-bars span { animation: none; height: 10px; }
-}
+        }
 
         /* ============ MOBILE ============ */
 
@@ -1095,7 +1126,7 @@
                 </div>
 
                 <div class="members-tools">
-                    <input type="search" id="memberSearch" class="member-search" placeholder="Cari nama / jabatan...">
+                    <input type="search" id="memberSearch" class="member-search" placeholder="Cari nama / jabatan / instagram...">
                     <div class="members-count">
                         {{ $members->count() }} Anggota
                     </div>
@@ -1104,8 +1135,14 @@
 
             <div class="row g-4" id="membersGrid">
                 @forelse($members as $member)
+                    @php
+                        // kolom `deskripsi` sekarang berisi username Instagram
+                        $ig = ltrim(trim($member->deskripsi ?? ''), '@');
+                        $igValid = preg_match('/^[A-Za-z0-9._]{1,30}$/', $ig);
+                    @endphp
+
                     <div class="col-sm-6 col-lg-4 col-xl-3 member-item"
-                         data-search="{{ strtolower($member->nama . ' ' . $member->jabatan) }}">
+                         data-search="{{ strtolower($member->nama . ' ' . $member->jabatan . ' ' . ($igValid ? $ig : '')) }}">
                         <div class="member-card"
                              role="button"
                              tabindex="0"
@@ -1113,7 +1150,7 @@
                              data-bs-target="#memberModal"
                              data-name="{{ $member->nama }}"
                              data-position="{{ $member->jabatan }}"
-                             data-description="{{ $member->deskripsi ?: 'Bagian dari PPKM Informatika yang berkontribusi dalam perjalanan organisasi.' }}"
+                             data-ig="{{ $igValid ? $ig : '' }}"
                              data-photo="{{ $member->foto ? asset('uploads/members/' . $member->foto) : '' }}"
                              data-number="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}">
 
@@ -1135,9 +1172,17 @@
                                 <h5 class="member-name">{{ $member->nama }}</h5>
                                 <span class="member-position">{{ $member->jabatan }}</span>
 
-                                <p class="member-description">
-                                    {{ $member->deskripsi ?: 'Bagian dari PPKM Informatika yang berkontribusi dalam perjalanan organisasi.' }}
-                                </p>
+                                @if($igValid)
+                                    <a href="https://instagram.com/{{ $ig }}"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="member-ig"
+                                       onclick="event.stopPropagation()">
+                                        <i class="bi bi-instagram"></i>&#64;{{ $ig }}
+                                    </a>
+                                @else
+                                    <span class="member-ig-empty">Instagram belum tersedia</span>
+                                @endif
 
                                 <div class="member-click">
                                     <span>Lihat profil</span>
@@ -1160,7 +1205,7 @@
             <div id="memberNotFound" class="empty-state mt-4" style="display:none;">
                 <i class="bi bi-search"></i>
                 <h5>Anggota Tidak Ditemukan</h5>
-                <p class="mb-0">Coba cari dengan nama atau jabatan yang berbeda.</p>
+                <p class="mb-0">Coba cari dengan nama, jabatan, atau username yang berbeda.</p>
             </div>
         </div>
     </section>
@@ -1189,7 +1234,11 @@
                             <div class="profile-label">Anggota Kelompok 07</div>
                             <h3 id="modalMemberName">Nama Anggota</h3>
                             <div class="profile-position" id="modalMemberPosition">Jabatan</div>
-                            <p class="profile-description" id="modalMemberDescription"></p>
+
+                            <a id="modalMemberIg" href="#" target="_blank" rel="noopener noreferrer"
+                               class="profile-ig" style="display:none;">
+                                <i class="bi bi-instagram"></i><span></span>
+                            </a>
 
                             <div class="profile-footer">
                                 <i class="bi bi-stars me-1"></i>
@@ -1254,7 +1303,7 @@
 </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // PROFILE MODAL
@@ -1266,9 +1315,19 @@
 
                 document.getElementById('modalMemberName').textContent = card.dataset.name || 'Nama Anggota';
                 document.getElementById('modalMemberPosition').textContent = card.dataset.position || 'Anggota';
-                document.getElementById('modalMemberDescription').textContent =
-                    card.dataset.description || 'Bagian dari PPKM Informatika.';
                 document.getElementById('modalMemberNumber').textContent = card.dataset.number || '01';
+
+                // INSTAGRAM
+                const igLink = document.getElementById('modalMemberIg');
+                const ig = card.dataset.ig;
+
+                if (ig) {
+                    igLink.href = 'https://instagram.com/' + encodeURIComponent(ig);
+                    igLink.querySelector('span').textContent = '@' + ig;
+                    igLink.style.display = 'inline-flex';
+                } else {
+                    igLink.style.display = 'none';
+                }
 
                 const photo = document.getElementById('modalMemberPhoto');
                 const placeholder = document.getElementById('modalMemberPlaceholder');
@@ -1308,8 +1367,11 @@
         }
 
         // ENTER / SPACE UNTUK CARD
+        // (diabaikan kalau fokusnya di link Instagram, supaya Enter tetap membuka link)
         document.querySelectorAll('.member-card').forEach(card => {
             card.addEventListener('keydown', function (e) {
+                if (e.target !== this) return;
+
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     this.click();
