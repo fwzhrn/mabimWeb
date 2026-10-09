@@ -1227,7 +1227,7 @@
     <footer>
         <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap gap-2" style="padding: 0 40px;">
             <div>
-                <strong>PPKM Informatika</strong> / Universitas
+                <strong>PPKM Informatika</strong> / Fakultas Teknik
             </div>
 
             <div>
